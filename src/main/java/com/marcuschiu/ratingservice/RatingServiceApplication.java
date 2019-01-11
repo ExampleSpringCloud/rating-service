@@ -30,12 +30,7 @@ public class RatingServiceApplication {
 			new Rating(4L, 2L, 5)
 	);
 
-	@GetMapping("")
-	public List<Rating> findRatingsByBookId(@RequestParam Long bookId) {
-		return bookId == null || bookId.equals(0L) ? Collections.EMPTY_LIST : ratingList.stream().filter(r -> r.getBookId().equals(bookId)).collect(Collectors.toList());
-	}
-
-	@GetMapping("/all")
+	@GetMapping("/")
 	public List<Rating> findAllRatings() {
 		return ratingList;
 	}
